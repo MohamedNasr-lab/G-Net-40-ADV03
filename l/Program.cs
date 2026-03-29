@@ -64,77 +64,100 @@ namespace l
             #endregion
 
             #region Ex3
-            Dictionary<string, string> contacts = new Dictionary<string, string>()
-            {
-                {"Ahmed", "01012345678"},
-                {"Sara", "01198765432"},
-                {"Ali", "01255555555"},
-                {"Mona", "01544444444"}
-            };
+            //Dictionary<string, string> contacts = new Dictionary<string, string>()
+            //{
+            //    {"Ahmed", "01012345678"},
+            //    {"Sara", "01198765432"},
+            //    {"Ali", "01255555555"},
+            //    {"Mona", "01544444444"}
+            //};
 
-            contacts.Add("Rana", "01544231321");
+            //contacts.Add("Rana", "01544231321");
 
-            try
-            {
-                contacts.Add("Ali", "00000000000"); 
-            }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
-            bool isAdded;
+            //try
+            //{
+            //    contacts.Add("Ali", "00000000000"); 
+            //}
+            //catch (ArgumentException ex)
+            //{
+            //    Console.WriteLine("Error: " + ex.Message);
+            //}
+            //bool isAdded;
 
-            if (!contacts.ContainsKey("Ali"))
-            {
-                contacts.Add("Ali", "00000000000");
-                isAdded = true;
-            }
-            else
-            {
-                isAdded = false;
-            }
+            //if (!contacts.ContainsKey("Ali"))
+            //{
+            //    contacts.Add("Ali", "00000000000");
+            //    isAdded = true;
+            //}
+            //else
+            //{
+            //    isAdded = false;
+            //}
 
-            Console.WriteLine("Added? " + isAdded);
-
-
-           
-
-            if (contacts.ContainsKey("Omar"))
-            {
-                Console.WriteLine("Found: " + contacts["Omar"]);
-            }
-            else
-            {
-                Console.WriteLine("Contact not found");
-            }
-
-            string phone;
-
-            if (contacts.TryGetValue("Omar", out phone))
-            {
-                Console.WriteLine(phone);
-            }
-            else
-            {
-                Console.WriteLine("Not Found");
-            }
+            //Console.WriteLine("Added? " + isAdded);
 
 
-            foreach (var contact in contacts)
-            {
-                Console.WriteLine($"{contact.Key}");
-                
-               
-            }
-            Console.WriteLine();
-            foreach (var contact in contacts)
-            {
-                
-                Console.WriteLine($"{contact.Value}");
-                
-            }
 
 
+            //if (contacts.ContainsKey("Omar"))
+            //{
+            //    Console.WriteLine("Found: " + contacts["Omar"]);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Contact not found");
+            //}
+
+            //string phone;
+
+            //if (contacts.TryGetValue("Omar", out phone))
+            //{
+            //    Console.WriteLine(phone);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Not Found");
+            //}
+
+
+            //foreach (var contact in contacts)
+            //{
+            //    Console.WriteLine($"{contact.Key}");
+
+
+            //}
+            //Console.WriteLine();
+            //foreach (var contact in contacts)
+            //{
+
+            //    Console.WriteLine($"{contact.Value}");
+
+            //}
+
+
+            #endregion
+
+            #region Ex6
+
+            Stack<string> browser = new Stack<string>();
+
+            browser.Push("google.com");
+            browser.Push("github.com");
+            browser.Push("stackoverflow.com");
+            browser.Push("youtube.com");
+            browser.Push("claude.ai");
+            Console.WriteLine($"Current page:{browser.Peek()}");
+
+            Console.WriteLine($"Current page:{browser.Peek()}");
+            browser.Pop();
+
+            Console.WriteLine($"Current page:{browser.Peek()}");
+            browser.Pop();
+
+            Console.WriteLine($"Current page:{browser.Peek()}");
+            browser.Pop();
+
+            Console.WriteLine($"Current page:{browser.Peek()}");
             #endregion
         }
     }
