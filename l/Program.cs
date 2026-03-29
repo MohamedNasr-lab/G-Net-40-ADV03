@@ -31,35 +31,109 @@ namespace l
 
 
             #region Ex2
-            SortedList<int, string> Leaderboard = new SortedList<int, string>()
+            //SortedList<int, string> Leaderboard = new SortedList<int, string>()
+            //{
+            //    [500] = "Ahmed",
+            //    [200] = "Sara",
+            //    [800] = "Ali",
+            //    [350] = "Mona"
+            //};
+            //foreach (var i in Leaderboard)
+            //{
+            //    Console.WriteLine($"{i.Key}:{i.Value}");
+            //}
+            //Console.WriteLine($"First key:{Leaderboard.Keys[0]}");
+            //Console.WriteLine($"First Value:{Leaderboard.Values[0]}");
+
+            //if (Leaderboard.ContainsKey(500))
+            //    Console.WriteLine("It contains this number");
+            //else
+            //    Console.WriteLine("It Doesnt Contain his number");
+
+            //if (Leaderboard.ContainsKey(999))
+            //    Console.WriteLine(Leaderboard.Values[999]);
+            //else
+            //    Console.WriteLine("There is no key with this number");
+
+            //Leaderboard.Remove(200);
+            //foreach (var i in Leaderboard)
+            //{
+            //    Console.WriteLine($"{i.Key}:{i.Value}");
+            //}
+
+            #endregion
+
+            #region Ex3
+            Dictionary<string, string> contacts = new Dictionary<string, string>()
             {
-                [500] = "Ahmed",
-                [200] = "Sara",
-                [800] = "Ali",
-                [350] = "Mona"
+                {"Ahmed", "01012345678"},
+                {"Sara", "01198765432"},
+                {"Ali", "01255555555"},
+                {"Mona", "01544444444"}
             };
-            foreach (var i in Leaderboard)
+
+            contacts.Add("Rana", "01544231321");
+
+            try
             {
-                Console.WriteLine($"{i.Key}:{i.Value}");
+                contacts.Add("Ali", "00000000000"); 
             }
-            Console.WriteLine($"First key:{Leaderboard.Keys[0]}");
-            Console.WriteLine($"First Value:{Leaderboard.Values[0]}");
-
-            if (Leaderboard.ContainsKey(500))
-                Console.WriteLine("It contains this number");
-            else
-                Console.WriteLine("It Doesnt Contain his number");
-
-            if (Leaderboard.ContainsKey(999))
-                Console.WriteLine(Leaderboard.Values[999]);
-            else
-                Console.WriteLine("There is no key with this number");
-
-            Leaderboard.Remove(200);
-            foreach (var i in Leaderboard)
+            catch (ArgumentException ex)
             {
-                Console.WriteLine($"{i.Key}:{i.Value}");
+                Console.WriteLine("Error: " + ex.Message);
             }
+            bool isAdded;
+
+            if (!contacts.ContainsKey("Ali"))
+            {
+                contacts.Add("Ali", "00000000000");
+                isAdded = true;
+            }
+            else
+            {
+                isAdded = false;
+            }
+
+            Console.WriteLine("Added? " + isAdded);
+
+
+           
+
+            if (contacts.ContainsKey("Omar"))
+            {
+                Console.WriteLine("Found: " + contacts["Omar"]);
+            }
+            else
+            {
+                Console.WriteLine("Contact not found");
+            }
+
+            string phone;
+
+            if (contacts.TryGetValue("Omar", out phone))
+            {
+                Console.WriteLine(phone);
+            }
+            else
+            {
+                Console.WriteLine("Not Found");
+            }
+
+
+            foreach (var contact in contacts)
+            {
+                Console.WriteLine($"{contact.Key}");
+                
+               
+            }
+            Console.WriteLine();
+            foreach (var contact in contacts)
+            {
+                
+                Console.WriteLine($"{contact.Value}");
+                
+            }
+
 
             #endregion
         }
