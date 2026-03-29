@@ -137,27 +137,56 @@ namespace l
 
             #endregion
 
+            #region Ex5
+            Queue<string> printer = new Queue<string>();
+
+            printer.Enqueue("Report.pdf");
+            printer.Enqueue("Invoice.pdf");
+            printer.Enqueue("Letter.docx");
+            printer.Enqueue("Resume.pdf");
+            printer.Enqueue("Photo.jpg");
+
+            Console.WriteLine($"Printer:{string.Join(", ", printer)}");
+            Console.WriteLine($"Printer Count:{printer.Count()}");
+
+            Console.WriteLine($"Printing Next:{printer.Peek()}");
+
+            printer.Dequeue();
+            Console.WriteLine($"Printing:{printer.Peek()}");
+
+            printer.Dequeue();
+            Console.WriteLine($"Printing:{printer.Peek()}");
+
+            printer.Dequeue();
+            Console.WriteLine($"Printing:{printer.Peek()}");
+            
+
+            
+
+            #endregion
+
+
             #region Ex6
 
-            Stack<string> browser = new Stack<string>();
+            //Stack<string> browser = new Stack<string>();
 
-            browser.Push("google.com");
-            browser.Push("github.com");
-            browser.Push("stackoverflow.com");
-            browser.Push("youtube.com");
-            browser.Push("claude.ai");
-            Console.WriteLine($"Current page:{browser.Peek()}");
+            //browser.Push("google.com");
+            //browser.Push("github.com");
+            //browser.Push("stackoverflow.com");
+            //browser.Push("youtube.com");
+            //browser.Push("claude.ai");
+            //Console.WriteLine($"Current page:{browser.Peek()}");
 
-            Console.WriteLine($"Current page:{browser.Peek()}");
-            browser.Pop();
+            //Console.WriteLine($"Current page:{browser.Peek()}");
+            //browser.Pop();
 
-            Console.WriteLine($"Current page:{browser.Peek()}");
-            browser.Pop();
+            //Console.WriteLine($"Current page:{browser.Peek()}");
+            //browser.Pop();
 
-            Console.WriteLine($"Current page:{browser.Peek()}");
-            browser.Pop();
+            //Console.WriteLine($"Current page:{browser.Peek()}");
+            //browser.Pop();
 
-            Console.WriteLine($"Current page:{browser.Peek()}");
+            //Console.WriteLine($"Current page:{browser.Peek()}");
             #endregion
         }
     }
