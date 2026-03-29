@@ -137,57 +137,120 @@ namespace l
 
             #endregion
 
-            #region Ex5
-            Queue<string> printer = new Queue<string>();
+            #region Ex4
+            
+            HashSet<string> emails = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
-            printer.Enqueue("Report.pdf");
-            printer.Enqueue("Invoice.pdf");
-            printer.Enqueue("Letter.docx");
-            printer.Enqueue("Resume.pdf");
-            printer.Enqueue("Photo.jpg");
+           
+            emails.Add("ahmed@test.com");
+            emails.Add("AHMED@test.com");
+            emails.Add("sara@test.com");
+            emails.Add("Sara@Test.Com");
 
-            Console.WriteLine($"Printer:{string.Join(", ", printer)}");
-            Console.WriteLine($"Printer Count:{printer.Count()}");
+            
+            Console.WriteLine("Email Count: " + emails.Count);
 
-            Console.WriteLine($"Printing Next:{printer.Peek()}");
+            
+            foreach (var email in emails)
+            {
+                Console.WriteLine(email);
+            }
 
-            printer.Dequeue();
-            Console.WriteLine($"Printing:{printer.Peek()}");
+            Console.WriteLine("------------");
 
-            printer.Dequeue();
-            Console.WriteLine($"Printing:{printer.Peek()}");
+            
+            HashSet<int> setA = new HashSet<int>() { 1, 2, 3, 4, 5 };
+            HashSet<int> setB = new HashSet<int>() { 4, 5, 6, 7, 8 };
 
-            printer.Dequeue();
-            Console.WriteLine($"Printing:{printer.Peek()}");
             
 
             
+            var union = new HashSet<int>(setA);
+            union.UnionWith(setB);
+            Console.WriteLine("Union:");
+            PrintSet(union);
 
-            #endregion
+            
+            var intersect = new HashSet<int>(setA);
+            intersect.IntersectWith(setB);
+            Console.WriteLine("Intersection:");
+            PrintSet(intersect);
 
+            
+            var except = new HashSet<int>(setA);
+            except.ExceptWith(setB);
+            Console.WriteLine("Except (A - B):");
+            PrintSet(except);
 
-            #region Ex6
+            Console.WriteLine("------------");
 
-            //Stack<string> browser = new Stack<string>();
-
-            //browser.Push("google.com");
-            //browser.Push("github.com");
-            //browser.Push("stackoverflow.com");
-            //browser.Push("youtube.com");
-            //browser.Push("claude.ai");
-            //Console.WriteLine($"Current page:{browser.Peek()}");
-
-            //Console.WriteLine($"Current page:{browser.Peek()}");
-            //browser.Pop();
-
-            //Console.WriteLine($"Current page:{browser.Peek()}");
-            //browser.Pop();
-
-            //Console.WriteLine($"Current page:{browser.Peek()}");
-            //browser.Pop();
-
-            //Console.WriteLine($"Current page:{browser.Peek()}");
-            #endregion
+            
+            HashSet<int> subset = new HashSet<int>() { 1, 2 };
+            Console.WriteLine("Is {1,2} subset of A? " + subset.IsSubsetOf(setA));
         }
+
+        static void PrintSet(HashSet<int> set)
+        {
+            foreach (var item in set)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+        }
+
+        #endregion
+
+        #region Ex5
+        //Queue<string> printer = new Queue<string>();
+
+        //printer.Enqueue("Report.pdf");
+        //printer.Enqueue("Invoice.pdf");
+        //printer.Enqueue("Letter.docx");
+        //printer.Enqueue("Resume.pdf");
+        //printer.Enqueue("Photo.jpg");
+
+        //Console.WriteLine($"Printer:{string.Join(", ", printer)}");
+        //Console.WriteLine($"Printer Count:{printer.Count()}");
+
+        //Console.WriteLine($"Printing Next:{printer.Peek()}");
+
+        //printer.Dequeue();
+        //Console.WriteLine($"Printing:{printer.Peek()}");
+
+        //printer.Dequeue();
+        //Console.WriteLine($"Printing:{printer.Peek()}");
+
+        //printer.Dequeue();
+        //Console.WriteLine($"Printing:{printer.Peek()}");
+
+
+
+
+        #endregion
+
+
+        #region Ex6
+
+        //Stack<string> browser = new Stack<string>();
+
+        //browser.Push("google.com");
+        //browser.Push("github.com");
+        //browser.Push("stackoverflow.com");
+        //browser.Push("youtube.com");
+        //browser.Push("claude.ai");
+        //Console.WriteLine($"Current page:{browser.Peek()}");
+
+        //Console.WriteLine($"Current page:{browser.Peek()}");
+        //browser.Pop();
+
+        //Console.WriteLine($"Current page:{browser.Peek()}");
+        //browser.Pop();
+
+        //Console.WriteLine($"Current page:{browser.Peek()}");
+        //browser.Pop();
+
+        //Console.WriteLine($"Current page:{browser.Peek()}");
+        #endregion
+    }
     }
 }
